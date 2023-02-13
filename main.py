@@ -77,7 +77,7 @@ async def randompass(m: types.Message):
 @dp.message_handler(commands=['admin'])
 async def adminstration(m: types.Message):
     if m.chat.id == int(admin):
-        await m.answer(code('Добро пожаловать в админ панель.'), reply_markup=kb.apanel)
+        await m.answer('Добро пожаловать в админ панель.', reply_markup=kb.apanel)
     else:
         await m.answer('Черт! Ты меня взломал :(')
 
@@ -126,6 +126,7 @@ async def process_name(message: types.Message, state: FSMContext):
                 pass
         await message.answer('Рассылка завершена.')
         await state.finish()
+
 
 
 if __name__ == '__main__':

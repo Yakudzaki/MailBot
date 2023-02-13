@@ -100,7 +100,7 @@ async def texthandler(m: types.Message):
 async def statistics(call):
     row = q.execute('SELECT * FROM users').fetchall()
     lenght = len(row)
-    await call.message.answer('Всего пользователей: {lenght}')
+    await call.message.answer(f'Всего пользователей: {lenght}')
 
 
 

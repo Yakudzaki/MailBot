@@ -63,6 +63,8 @@ async def takeamail(m: types.Message):
                         await m.answer(f'📩 Новое письмо:\n<b>От</b>: {fromm}\n<b>Тема</b>: {theme}\n<b>Сообщение</b>: {mes}', reply_markup=kb.menu, parse_mode='HTML')
                         continue
         await asyncio.sleep(5)
+    else:
+        await m.answer('Время действия почты истекло!')
 
 
 
@@ -92,7 +94,7 @@ async def texthandler(m: types.Message):
         sql = 'INSERT INTO users ({}) VALUES ({})'.format(uid, m.chat.id)
         q.execute(sql)
         connection.commit()
-    await m.answer(f'Приветствую тебя, {m.from_user.mention}\nЭтот бот создан для быстрого получения временной почты.\nИспользуй кнопки ниже 👇\n\nDeveloper - @Yakudza_Drill', reply_markup=kb.menu)
+    await m.answer(f'Приветствую тебя, {m.from_user.full_name}\nЭтот бот создан для быстрого получения временной почты.\nИспользуй кнопки ниже 👇\n\nDeveloper - @Yakudza_Drill', reply_markup=kb.menu)
 
 
 
